@@ -13,6 +13,8 @@ import { schema } from "./sanity/schema"
 import { myTheme } from "./theme"
 import StudioNavbar from "./components/StudioNavbar"
 import StudioLogo from "./components/StudioLogo"
+import { markdownSchema } from "sanity-plugin-markdown/next"
+import { CustomMarkdownInput } from "./components/CustomMarkdownInput"
 
 export default defineConfig({
   basePath: "/studio",
@@ -30,6 +32,7 @@ export default defineConfig({
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    markdownSchema({ input: CustomMarkdownInput }),
   ],
   theme: myTheme,
   studio: {

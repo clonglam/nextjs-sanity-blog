@@ -1,31 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 My Blogging Platform with Sanity v3 CMS and Next.js 13
 
-## Getting Started
+Welcome to my blogging platform! This application is powered by Sanity v3 for content management and Next.js 13 for frontend rendering. You could also make your blog own blog basic on this project
 
-First, run the development server:
+## 📚 About the Project
+
+## ✨ Features
+
+Here's what you can expect from this platform:
+
+1. **Markdown Support**: The post content accepts Markdown format, making it easy for authors to format their posts.
+
+2. **Code Syntax Highlighting**: If your blog posts include code snippets, the built-in syntax highlighter ensures they're easy to read and understand.
+
+3. **SEO-friendly**: Each blog post has its own SEO-friendly URL, and metadata is handled automatically. This helps your posts get found by search engines.
+
+4. **Real-Time Preview**: With Sanity's real-time preview feature, you can see what your post will look like as you're writing it. This helps you catch any formatting issues before you publish.
+
+5. **Incremental Static Regeneration (ISR)**: Using Next.js 13's ISR feature, your site is fast and always up-to-date without needing to rebuild the entire site when you make changes.
+
+6. **Responsive Design**: The layout adjusts to any screen size, providing a great reading experience whether you're on a desktop, tablet, or mobile device.
+
+7. **Fast Loading Times**: With Next.js 13, enjoy lightning-fast loading times, ensuring a smooth user experience.
+
+8. **Categorization and Tags**: Easily organize and filter your blog posts with categories and tags.
+
+## 🛠️ Installation
+
+To get this project running on your local machine, follow these steps:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# Clone the repository
+git clone https://github.com/clonglam/nextjs-sanity-blog
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Navigate into the directory
+cd nextjs-sanity-blog
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Install dependencies
+yarn install
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Run the development server
+yarn run dev
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+🤝 Contributing
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Fork the Project
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+📝 License
+Distributed under the MIT License. See LICENSE for more information.
+
+📬 Contact
+Your Name - clonglam@gmail.com
+
+Project Link: https://github.com/yourusername/reponame
+
 
 ## Deploy on Vercel
 
@@ -34,3 +67,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 # nextjs13-sanity-blog
 # nextjs-sanity-blog
+```

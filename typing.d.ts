@@ -8,12 +8,12 @@ type Base = {
 
 interface Post extends Base {
   author: Author
-  body: Block[]
   categories: Category[]
   mainImage: Image
   slug: Slug
   title: string
   description: string
+  content: string
 }
 
 interface Author extends Base {

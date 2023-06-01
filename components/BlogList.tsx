@@ -23,13 +23,13 @@ function BlogList({ posts }: Props) {
             description,
             slug,
           }) => (
-            <ClientSideRoute key={_id} route={`/post/${slug.current}`}>
+            <ClientSideRoute key={_id} route={`/post/${slug?.current}`}>
               <div className="group flex flex-col cursor-pointer">
                 <div className="relative w-full h-80 drop-shadow-lg gorup-hover:scale-105 transition-transform duration-200 ease-out">
                   <Image
                     className="object-cover object-left lg:object-center"
-                    src={urlFor(mainImage).url()}
-                    alt={author.name}
+                    src={mainImage ? urlFor(mainImage).url() : ""}
+                    alt={author?.name}
                     fill
                   />
 
@@ -72,7 +72,7 @@ export default BlogList
 function CategoryBadeges({ categories }: { categories: Category[] }) {
   return (
     <div className="flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center">
-      {categories.map((c) => (
+      {categories?.map((c) => (
         <p
           key={c._id}
           className="bg-branding text-center rounded-full text-black px-3 py-1 font-semibold text-sm"

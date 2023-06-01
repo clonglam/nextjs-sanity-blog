@@ -2,9 +2,8 @@ import urlFor from "@/lib/urlFor"
 import { client } from "@/sanity/lib/client"
 import { groq } from "next-sanity"
 import Image from "next/image"
-import { PortableText } from "@portabletext/react"
+import BlogMarkdown from "@/components/BlogMarkdown"
 import React from "react"
-import { RichTextComponent } from "@/components/RichTextComponent"
 
 interface Props {
   params: {
@@ -36,7 +35,8 @@ async function PostDetailPage({ params: { slug } }: Props) {
     `
 
   const post: Post = await client.fetch(query, { slug })
-  const { author, _createdAt, description, categories } = post
+
+  const { author, _createdAt, description, categories, content } = post
 
   return (
     <article className="px-10 pb-20">
@@ -75,7 +75,7 @@ async function PostDetailPage({ params: { slug } }: Props) {
         </div>
       </section>
 
-      <PortableText value={post.body} components={RichTextComponent} />
+      <BlogMarkdown content={content} />
     </article>
   )
 }
