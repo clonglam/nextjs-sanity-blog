@@ -1,10 +1,8 @@
+import { CustomMDX } from "@/components/mdx-remote"
 import urlFor from "@/lib/urlFor"
 import { client } from "@/sanity/lib/client"
 import { groq } from "next-sanity"
 import Image from "next/image"
-import BlogMarkdown from "@/components/BlogMarkdown"
-import React, { Suspense } from "react"
-import { CustomMDX } from "@/components/mdx-remote"
 
 interface Props {
   params: {
@@ -31,13 +29,15 @@ async function PostDetailPage({ params: { slug } }: Props) {
     *[_type=="post" && slug.current == $slug][0]{
         ...,
         author->,
-        categories[]->
+        categories[]->,
+        tags[]->
+       
     }
     `
 
   const post: Post = await client.fetch(query, { slug })
 
-  const { author, _createdAt, description, categories, content } = post
+  const { author, _createdAt, description, categories, content, tags } = post
 
   return (
     <article className="px-10 pb-20 mx-auto max-w-4xl">
@@ -64,21 +64,29 @@ async function PostDetailPage({ params: { slug } }: Props) {
                   })}
                 </p>
               </div>
-
-              <AuthorInfo author={author} />
-
-              <div className="flex items-center space-x-2">
-                <h2 className="italic">{description}</h2>
-                <CategoryBadge categories={categories} />
-              </div>
             </div>
+            <AuthorInfo author={author} />
+
+            <div className="flex items-center space-x-2">
+              <h2 className="italic">{description}</h2>
+            </div>
+            <CategoryBadge categories={categories} />
           </section>
         </div>
       </section>
+      <div className="flex">
+        <span>Tags:</span>
+        <div className="flex gap-x-1">
+          {tags.map((tag, index) => (
+            <>
+              <span key={tag._id}>{tag.label}</span>
+              {tags.length !== index + 1 && <span>|</span>}
+            </>
+          ))}
+        </div>
+      </div>
 
       <CustomMDX source={content} />
-
-      {/* <BlogMarkdown content={content} /> */}
     </article>
   )
 }
@@ -114,7 +122,7 @@ function CategoryBadge({ categories }: { categories: Category[] }) {
           key={_id}
           className="bg-gray-800 text-white rounded-full text-sm font-semibold px-3 py-1 mt-4"
         >
-          title
+          {title}
         </p>
       ))}
     </div>

@@ -38,7 +38,9 @@ export default async function IndexPage({ searchParams: { category } }: Props) {
       <div className="flex-1">
         {/* @ts-expect-error Server Component */}
         <CategoryList currentCategory={category} />
-        <PostsList posts={posts} />
+        <Suspense fallback={<p>Loading...</p>}>
+          <PostsList posts={posts} />
+        </Suspense>
       </div>
 
       <div className="border-l p-5 w-1/4 hidden lg:block">

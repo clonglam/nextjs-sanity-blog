@@ -12,6 +12,7 @@ interface Post extends Base {
   mainImage: Image
   slug: Slug
   title: string
+  tags: Tag[]
   description: string
   content: string
 }
