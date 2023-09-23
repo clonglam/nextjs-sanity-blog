@@ -70,6 +70,7 @@ async function PostDetailPage({ params: { slug } }: Props) {
             <div className="flex items-center space-x-2">
               <h2 className="italic">{description}</h2>
             </div>
+
             <CategoryBadge categories={categories} />
           </section>
         </div>
@@ -79,7 +80,7 @@ async function PostDetailPage({ params: { slug } }: Props) {
         <div className="flex gap-x-1">
           {tags.map((tag, index) => (
             <>
-              <span key={tag._id}>{tag.label}</span>
+              <span key={index}>{tag.label}</span>
               {tags.length !== index + 1 && <span>|</span>}
             </>
           ))}
