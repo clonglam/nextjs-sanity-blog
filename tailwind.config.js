@@ -64,8 +64,8 @@ module.exports = {
       },
     },
   },
-  experimental: {
-    appDir: true,
+  daisyui: {
+    themes: ["lofi"],
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [require("@tailwindcss/line-clamp"), require("daisyui")],
 }

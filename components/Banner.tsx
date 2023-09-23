@@ -5,14 +5,15 @@ const Banner = () => {
     <div className="flex flex-col lg:flex-row justify-between items-center px-10 py-5 mb-10 space-x-2 lg:space-x-5">
       <div>
         <h1 className="font-bold text-6xl text-text-black mb-2">
-          Hugo Lam BLog
+          CLong Journey
         </h1>
-        <p>
-          Welcome to the blog that record my{" "}
+
+        <p className="w-3/4">
+          Any fool can write code that computers can understand.
           <span className="font-bold underline decoration-4 decoration-branding">
-            experience and jounery
+            Good programmers
           </span>
-          .
+          {` write code that humans can understand.`}
         </p>
       </div>
 

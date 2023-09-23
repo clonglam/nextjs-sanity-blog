@@ -1,16 +1,15 @@
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid"
-import urlFor from "../lib/urlFor"
 import Image from "next/image"
-import React from "react"
-import ClientSideRoute from "./ClientSideRoute"
+import urlFor from "../../lib/urlFor"
+import Link from "next/link"
 
 interface Props {
   posts: Post[]
 }
-function BlogList({ posts }: Props) {
+function PostsList({ posts }: Props) {
   return (
     <div>
-      <hr className="border-branding mb-10" />
+      {/* <hr className="border-branding mb-10" /> */}
       <div className="grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24">
         {posts.map(
           ({
@@ -23,7 +22,7 @@ function BlogList({ posts }: Props) {
             description,
             slug,
           }) => (
-            <ClientSideRoute key={_id} route={`/post/${slug?.current}`}>
+            <Link key={_id} href={`/posts/${slug?.current}`}>
               <div className="group flex flex-col cursor-pointer">
                 <div className="relative w-full h-80 drop-shadow-lg gorup-hover:scale-105 transition-transform duration-200 ease-out">
                   <Image
@@ -59,7 +58,7 @@ function BlogList({ posts }: Props) {
                   <ArrowUpRightIcon className="ml-2 h-4 w-4" />
                 </p>
               </div>
-            </ClientSideRoute>
+            </Link>
           )
         )}
       </div>
@@ -67,7 +66,7 @@ function BlogList({ posts }: Props) {
   )
 }
 
-export default BlogList
+export default PostsList
 
 function CategoryBadeges({ categories }: { categories: Category[] }) {
   return (

@@ -22,6 +22,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: "description",
+      title: "Description",
+      type: "string",
+    }),
+    defineField({
       name: "author",
       title: "Author",
       type: "reference",
@@ -48,6 +53,18 @@ export default defineType({
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
     }),
+    defineField({
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "reference", to: { type: "tag" } }],
+    }),
+    defineField({
+      name: "featured",
+      title: "Featured",
+      type: "boolean",
+    }),
+
     defineField({
       name: "publishedAt",
       title: "Published at",

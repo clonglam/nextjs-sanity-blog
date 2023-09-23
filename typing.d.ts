@@ -49,6 +49,12 @@ interface Block {
 interface Category extends Base {
   description: string
   title: string
+  slug: Slug
+}
+interface Tag extends Base {
+  description: string
+  label: string
+  slug: Slug
 }
 
 interface MainImage {

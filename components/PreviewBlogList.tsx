@@ -1,7 +1,7 @@
 "use client"
 
 import { usePreview } from "@/lib/sanity.preview"
-import BlogList from "./BlogList"
+import PostsList from "./posts/PostsList"
 
 interface Props {
   query: string
@@ -11,7 +11,7 @@ function PreviewBlogList({ query }: Props) {
   const posts = usePreview(null, query)
   console.log("Loading posts... ", posts)
 
-  return <BlogList posts={posts} />
+  return <PostsList posts={posts} />
 }
 
 export default PreviewBlogList

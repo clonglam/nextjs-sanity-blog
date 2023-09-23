@@ -13,3 +13,8 @@ export function formatDate(input: string | number): string {
     year: "numeric",
   })
 }
+
+export function limitText(text: string, limit: number = 40) {
+  if (!text) return ""
+  return text.length > limit ? `${text.slice(0, limit)} ...` : text
+}

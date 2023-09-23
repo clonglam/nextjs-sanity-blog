@@ -3,7 +3,8 @@ import { client } from "@/sanity/lib/client"
 import { groq } from "next-sanity"
 import Image from "next/image"
 import BlogMarkdown from "@/components/BlogMarkdown"
-import React from "react"
+import React, { Suspense } from "react"
+import { CustomMDX } from "@/components/mdx-remote"
 
 interface Props {
   params: {
@@ -39,7 +40,7 @@ async function PostDetailPage({ params: { slug } }: Props) {
   const { author, _createdAt, description, categories, content } = post
 
   return (
-    <article className="px-10 pb-20">
+    <article className="px-10 pb-20 mx-auto max-w-4xl">
       <section className="space-y-2 border border-branding text-white">
         <div className="relative flex flex-col md:flex-row min-h-48 justify-between gap-y-5">
           <div className="absolute top-0 w-full h-full opacity-10 blur-sm p-10">
@@ -67,7 +68,7 @@ async function PostDetailPage({ params: { slug } }: Props) {
               <AuthorInfo author={author} />
 
               <div className="flex items-center space-x-2">
-                <PostDescription description={description} />
+                <h2 className="italic">{description}</h2>
                 <CategoryBadge categories={categories} />
               </div>
             </div>
@@ -75,7 +76,9 @@ async function PostDetailPage({ params: { slug } }: Props) {
         </div>
       </section>
 
-      <BlogMarkdown content={content} />
+      <CustomMDX source={content} />
+
+      {/* <BlogMarkdown content={content} /> */}
     </article>
   )
 }
@@ -101,10 +104,6 @@ function AuthorInfo({ author }: IAuthorInfo) {
       </div>
     </div>
   )
-}
-
-function PostDescription({ description }: { description: string }) {
-  return <h2 className="italic">{description}</h2>
 }
 
 function CategoryBadge({ categories }: { categories: Category[] }) {

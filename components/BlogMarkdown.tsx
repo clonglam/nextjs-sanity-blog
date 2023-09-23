@@ -294,6 +294,27 @@ const BlogMarkdown: FC<{ content: string }> = ({ content }) => {
       }
       return <a href={anchor.href}>{anchor.children}</a>
     },
+    h1: (props: H3Props) => {
+      const children = Array.isArray(props.children)
+        ? props.children
+        : [props.children]
+
+      const heading = children
+        .flatMap((element) =>
+          typeof element === "string"
+            ? element
+            : element?.type !== undefined &&
+              typeof element.props.children === "string"
+            ? element.props.children
+            : typeof element === "object" && element.props?.children?.flatMap
+            ? element.props.children.flatMap((child: object) => {
+                if (typeof child === "string") return child
+                return ""
+              })
+            : ""
+        )
+        .join("")
+    },
     h3: (props: H3Props) => {
       const children = Array.isArray(props.children)
         ? props.children
